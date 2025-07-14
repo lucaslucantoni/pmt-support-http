@@ -1,6 +1,15 @@
 version: '3.8'
 
 services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "AdminPassword123!"  # Replace with a strong password
+    restart: unless-stopped
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     container_name: kafka-ui

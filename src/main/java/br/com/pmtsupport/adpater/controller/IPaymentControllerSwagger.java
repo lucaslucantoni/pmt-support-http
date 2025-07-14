@@ -22,6 +22,4 @@ public interface IPaymentControllerSwagger {
     ResponseEntity<CreatePaymentResponseDto> createPayment(@Valid @RequestBody CreatePaymentRequestDto paymentRequestDto);
 
 
-    ResponseEntity<>
-
 }
