@@ -1,7 +1,7 @@
-package br.com.pmtsupport.adpater.mapper;
+package br.com.pmtsupport.adpater.input.mapper;
 
-import br.com.pmtsupport.adpater.dto.request.CreatePaymentRequestDto;
-import br.com.pmtsupport.adpater.dto.response.CreatePaymentResponseDto;
+import br.com.pmtsupport.adpater.input.dto.request.CreatePaymentRequestDto;
+import br.com.pmtsupport.adpater.input.dto.response.CreatePaymentResponseDto;
 import br.com.pmtsupport.domain.model.CreatePaymentModel;
 import br.com.pmtsupport.domain.model.CreatePaymentResponseModel;
 import org.mapstruct.Mapper;

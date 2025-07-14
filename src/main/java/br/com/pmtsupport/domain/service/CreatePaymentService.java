@@ -1,5 +1,6 @@
 package br.com.pmtsupport.domain.service;
 
+import br.com.pmtsupport.config.PaymentConfig;
 import br.com.pmtsupport.domain.model.CreatePaymentModel;
 import br.com.pmtsupport.domain.model.CreatePaymentResponseModel;
 import br.com.pmtsupport.port.input.ICreatePaymentInputPort;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class CreatePaymentService implements ICreatePaymentInputPort {
+
+    private final PaymentConfig paymentConfig;
 
     @Override
     public CreatePaymentResponseModel createPayment(CreatePaymentModel createPaymentModel) {

@@ -1,7 +1,7 @@
-package br.com.pmtsupport.adpater.controller;
+package br.com.pmtsupport.adpater.input.controller;
 
-import br.com.pmtsupport.adpater.dto.request.CreatePaymentRequestDto;
-import br.com.pmtsupport.adpater.dto.response.CreatePaymentResponseDto;
+import br.com.pmtsupport.adpater.input.dto.request.CreatePaymentRequestDto;
+import br.com.pmtsupport.adpater.input.dto.response.CreatePaymentResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;

@@ -1,4 +1,4 @@
-package br.com.pmtsupport.adpater.dto.response;
+package br.com.pmtsupport.adpater.input.dto.response;
 
 public record CreatePaymentResponseDto(
 

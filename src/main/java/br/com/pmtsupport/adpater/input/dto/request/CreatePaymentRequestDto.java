@@ -1,4 +1,4 @@
-package br.com.pmtsupport.adpater.dto.request;
+package br.com.pmtsupport.adpater.input.dto.request;
 
 import lombok.Builder;
 
