@@ -32,6 +32,7 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
     implementation("javax.validation:validation-api:2.0.1.Final")
     implementation("org.springframework.data:spring-data-jpa:3.5.1")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.5.3")
     implementation("com.microsoft.sqlserver:mssql-jdbc:12.4.2.jre11")
 
     // Test Dependencies
