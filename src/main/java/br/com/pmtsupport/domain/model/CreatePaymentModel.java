@@ -1,12 +1,13 @@
-package br.com.pmtsupport.adpater.dto;
+package br.com.pmtsupport.domain.model;
 
 import lombok.Builder;
 
 @Builder
-public record PaymentRequestDto(
+public record CreatePaymentModel(
 
         String correlationId,
         float amount
+
 
 ) {
 }
