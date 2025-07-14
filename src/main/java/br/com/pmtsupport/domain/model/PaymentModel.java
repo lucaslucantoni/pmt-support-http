@@ -13,6 +13,6 @@ public class PaymentModel {
     private double grossAmount;
     private double netAmount;
     private double taxAmount;
-    private int chargedTax;
+    private double chargedTax;
 
 }

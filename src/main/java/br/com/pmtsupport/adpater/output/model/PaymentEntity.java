@@ -5,11 +5,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity(name = "payments")
 public class PaymentEntity {
 
     @Id
@@ -20,6 +22,14 @@ public class PaymentEntity {
     private double grossAmount;
     private double netAmount;
     private double taxAmount;
-    private int chargedTax;
+    private double chargedTax;
 
+    @Override
+    public String toString() {
+        return  "correlationId='" + correlationId + '\'' +
+                ", grossAmount=" + grossAmount +
+                ", netAmount=" + netAmount +
+                ", taxAmount=" + taxAmount +
+                ", chargedTax=" + chargedTax;
+    }
 }

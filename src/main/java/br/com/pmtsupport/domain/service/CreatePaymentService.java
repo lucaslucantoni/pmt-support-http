@@ -4,7 +4,9 @@ import br.com.pmtsupport.adpater.output.mapper.IPaymentMapper;
 import br.com.pmtsupport.config.PaymentConfig;
 import br.com.pmtsupport.domain.model.CreatePaymentModel;
 import br.com.pmtsupport.domain.model.CreatePaymentResponseModel;
+import br.com.pmtsupport.domain.model.PaymentModel;
 import br.com.pmtsupport.port.input.ICreatePaymentInputPort;
+import br.com.pmtsupport.port.output.IAzureSqlDbOutputPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,12 +18,24 @@ public class CreatePaymentService implements ICreatePaymentInputPort {
 
     private final PaymentConfig paymentConfig;
     private final IPaymentMapper paymentMapper;
+    private final IAzureSqlDbOutputPort databasePort;
 
     @Override
     public CreatePaymentResponseModel createPayment(CreatePaymentModel createPaymentModel) {
 
         log.info("Create payment {}", createPaymentModel);
+        double taxValue =  createPaymentModel.amount() * (paymentConfig.getPaymentTax() / 100);
+        PaymentModel paymentRequest =  PaymentModel.builder()
+                .chargedTax(paymentConfig.getPaymentTax())
+                .correlationId(createPaymentModel.correlationId())
+                .grossAmount(createPaymentModel.amount())
+                .taxAmount(taxValue)
+                .netAmount(createPaymentModel.amount() - taxValue)
+                .build();
 
-        return null;
+        var paymentResponse = databasePort.createPayment(paymentRequest);
+        log.info("Processed Payment {}", paymentResponse);
+        assert paymentResponse != null;
+        return new CreatePaymentResponseModel("CREATED: %s".formatted(paymentResponse.toString()));
     }
 }
