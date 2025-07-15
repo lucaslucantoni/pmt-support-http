@@ -16,8 +16,8 @@ public interface IPaymentControllerSwagger {
     @RequestBody(description = "Payment request", required = true, content = @Content(
             mediaType = "application/json", examples = {
                             @ExampleObject(
-                                    name = "Exemplo de Pagamento",
-                                    summary = "Exemplo básico de uma requisição de pagamento",
+                                    name = "Payment Example",
+                                    summary = "Payment request of 1500",
                                     value = "{\"correlationId\": \"4a7901b8-7d26-4d9d-aa19-4dc1c7cf60b3\", \"amount\": 1500.0}")}))
     ResponseEntity<CreatePaymentResponseDto> createPayment(@Valid @RequestBody CreatePaymentRequestDto paymentRequestDto);
 

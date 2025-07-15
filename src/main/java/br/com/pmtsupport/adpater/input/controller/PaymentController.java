@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class PaymentController implements IPaymentControllerSwagger {
 
     @Override
     @PostMapping("/payments")
-    public ResponseEntity<CreatePaymentResponseDto> createPayment(CreatePaymentRequestDto paymentRequestDto) {
+    public ResponseEntity<CreatePaymentResponseDto> createPayment(@RequestBody CreatePaymentRequestDto paymentRequestDto) {
 
         log.info("Processing request to create payment: {}", paymentRequestDto);
         CreatePaymentResponseModel response = createPmtInputPort.createPayment(
