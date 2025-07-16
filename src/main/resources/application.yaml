@@ -9,10 +9,13 @@ spring:
       hibernate:
         ddl-auto: update
   datasource:
-    url: ${DB_URL_CONNECTION:sqlserver://localhost:1433;databaseName=your_database}
+    url: ${DB_URL_CONNECTION:jdbc:sqlserver://localhost:1433;databaseName=sqlpaymentgateway;encrypt=true;trustServerCertificate=true}
     username: ${DB_USERNAME:sa}
     password: ${DB_PASSWORD:AdminPassword123!}
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 payments:
+  eventHubs:
+    namespace: ${EH_NAMESPACE:pg-payments}
+    eventHub: ${EH_HUBNAME:payments}
   gateway:
     tax: ${PAYMENT_PERCENTAGE_TAX:5}

@@ -11,5 +11,5 @@ import org.springframework.context.annotation.Configuration;
 public class PaymentConfig {
 
     @Value("${payments.gateway.tax}")
-    private int paymentTax;
+    private double paymentTax;
 }

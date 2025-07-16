@@ -7,7 +7,5 @@ public record CreatePaymentModel(
 
         String correlationId,
         float amount
-
-
 ) {
 }
