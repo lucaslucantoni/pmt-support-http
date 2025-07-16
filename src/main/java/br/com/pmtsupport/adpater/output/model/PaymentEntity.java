@@ -1,5 +1,6 @@
 package br.com.pmtsupport.adpater.output.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +23,9 @@ public class PaymentEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long transactionId;
 
+    @Column(unique = true, nullable = false, updatable = false)
     private String correlationId;
+
     private double grossAmount;
     private double netAmount;
     private double taxAmount;
@@ -31,9 +34,6 @@ public class PaymentEntity {
     @Override
     public String toString() {
         return  "correlationId='" + correlationId + '\'' +
-                ", grossAmount=" + grossAmount +
-                ", netAmount=" + netAmount +
-                ", taxAmount=" + taxAmount +
-                ", chargedTax=" + chargedTax;
+                ", grossAmount=" + grossAmount;
     }
 }

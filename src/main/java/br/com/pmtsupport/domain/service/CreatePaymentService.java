@@ -1,6 +1,7 @@
 package br.com.pmtsupport.domain.service;
 
 import br.com.pmtsupport.config.PaymentConfig;
+import br.com.pmtsupport.domain.exception.DuplicatedPaymentRequestException;
 import br.com.pmtsupport.domain.model.CreatePaymentModel;
 import br.com.pmtsupport.domain.model.CreatePaymentResponseModel;
 import br.com.pmtsupport.domain.model.PaymentModel;
@@ -22,8 +23,8 @@ public class CreatePaymentService implements ICreatePaymentInputPort {
     public CreatePaymentResponseModel createPayment(CreatePaymentModel createPaymentModel) {
 
         log.info("Create payment {}", createPaymentModel);
-        double taxValue =  createPaymentModel.amount() * (paymentConfig.getPaymentTax() / 100);
-        PaymentModel paymentRequest =  PaymentModel.builder()
+        double taxValue = createPaymentModel.amount() * (paymentConfig.getPaymentTax() / 100);
+        PaymentModel paymentRequest = PaymentModel.builder()
                 .chargedTax(paymentConfig.getPaymentTax())
                 .correlationId(createPaymentModel.correlationId())
                 .grossAmount(createPaymentModel.amount())
@@ -34,6 +35,8 @@ public class CreatePaymentService implements ICreatePaymentInputPort {
         var paymentResponse = databasePort.createPayment(paymentRequest);
         log.info("Processed Payment {}", paymentResponse);
         assert paymentResponse != null;
-        return new CreatePaymentResponseModel("CREATED: %s".formatted(paymentResponse.toString()));
+        return new CreatePaymentResponseModel("CREATED", paymentResponse.toString());
+
+
     }
 }

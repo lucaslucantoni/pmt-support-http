@@ -14,5 +14,8 @@ spring:
     password: ${DB_PASSWORD:AdminPassword123!}
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 payments:
+  eventHubs:
+    namespace: ${EH_NAMESPACE:pg-payments}
+    eventHub: ${EH_HUBNAME:payments}
   gateway:
     tax: ${PAYMENT_PERCENTAGE_TAX:5}

@@ -34,6 +34,8 @@ dependencies {
     implementation("org.springframework.data:spring-data-jpa:3.5.1")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.5.3")
     implementation("com.microsoft.sqlserver:mssql-jdbc:12.4.2.jre11")
+    implementation("com.azure:azure-messaging-eventhubs:5.20.2")
+    implementation("com.azure:azure-identity:1.16.2")
 
     // Test Dependencies
     testImplementation("org.springframework.boot:spring-boot-starter-test")
